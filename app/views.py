@@ -38,9 +38,13 @@ def property():
     if request.method == 'POST':
     
         # Get image data and save to upload folder
-        image = request.files['photo']
-        filename = secure_filename(image.filename)
-        image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        photo = request.files['photo']
+        filename = secure_filename(photo.filename)
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        
+        
+        
+        
         
         # Get the rest of the profile data
         title = form.title.data
